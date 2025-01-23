@@ -1,0 +1,289 @@
+diff --git a/gateware/boards/colorlight_i5/sysmgr.v b/gateware/boards/colorlight_i5/sysmgr.v
+index fd194ba..a615e96 100644
+--- a/gateware/boards/colorlight_i5/sysmgr.v
++++ b/gateware/boards/colorlight_i5/sysmgr.v
+@@ -82,3 +82,4 @@ always @(posedge clk_256fs)
+         clkdiv <= clkdiv + 1;
+ 
+ endmodule // sysmgr
++`default_nettype wire 
+diff --git a/gateware/boards/ecpix5/sysmgr.v b/gateware/boards/ecpix5/sysmgr.v
+index c9c3340..ce6d6db 100644
+--- a/gateware/boards/ecpix5/sysmgr.v
++++ b/gateware/boards/ecpix5/sysmgr.v
+@@ -78,3 +78,4 @@ always @(posedge clk_256fs)
+         clkdiv <= clkdiv + 1;
+ 
+ endmodule // sysmgr
++`default_nettype wire 
+diff --git a/gateware/boards/icebreaker/sysmgr.v b/gateware/boards/icebreaker/sysmgr.v
+index e14ff27..c7c219a 100644
+--- a/gateware/boards/icebreaker/sysmgr.v
++++ b/gateware/boards/icebreaker/sysmgr.v
+@@ -80,3 +80,4 @@ module sysmgr (
+ `endif
+ 
+ endmodule // sysmgr
++`default_nettype wire 
+diff --git a/gateware/boards/pico_ice/sysmgr.v b/gateware/boards/pico_ice/sysmgr.v
+index 83cbeed..07c2b24 100644
+--- a/gateware/boards/pico_ice/sysmgr.v
++++ b/gateware/boards/pico_ice/sysmgr.v
+@@ -49,3 +49,4 @@ module sysmgr (
+ `endif
+ 
+ endmodule // sysmgr
++`default_nettype wire 
+diff --git a/gateware/cal/cal.sv b/gateware/cal/cal.sv
+index f2d9742..d1f7b7e 100644
+--- a/gateware/cal/cal.sv
++++ b/gateware/cal/cal.sv
+@@ -21,7 +21,7 @@ module cal #(
+     parameter CAL_MEM_FILE = "cal/cal_mem.hex"
+ )(
+     input clk_256fs,
+-    input clk_fs,
++    input wire clk_fs,
+     input [7:0] jack,
+     input signed [W-1:0] in0,
+     input signed [W-1:0] in1,
+@@ -134,3 +134,4 @@ end
+ `endif
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cal/debug_uart.sv b/gateware/cal/debug_uart.sv
+index 7d84fb2..ae8cd0e 100644
+--- a/gateware/cal/debug_uart.sv
++++ b/gateware/cal/debug_uart.sv
+@@ -81,3 +81,4 @@ end
+ 
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/bitcrush.sv b/gateware/cores/bitcrush.sv
+index b692808..68dfb80 100644
+--- a/gateware/cores/bitcrush.sv
++++ b/gateware/cores/bitcrush.sv
+@@ -55,3 +55,4 @@ assign sample_out2 = out2;
+ assign sample_out3 = out3;
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/clkdiv.sv b/gateware/cores/clkdiv.sv
+index 757e973..feb87f8 100644
+--- a/gateware/cores/clkdiv.sv
++++ b/gateware/cores/clkdiv.sv
+@@ -62,3 +62,4 @@ assign sample_out2 = (div[2] && jack[6]) ? OUT_HI : OUT_LO;
+ assign sample_out3 = (div[3] && jack[7]) ? OUT_HI : OUT_LO;
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/filter.sv b/gateware/cores/filter.sv
+index 68a8d91..8974164 100644
+--- a/gateware/cores/filter.sv
++++ b/gateware/cores/filter.sv
+@@ -36,3 +36,4 @@ karlsen_lpf_pipelined #(.W(W)) lpf_inst(
+ );
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/mirror.sv b/gateware/cores/mirror.sv
+index bbcf5cb..9787440 100644
+--- a/gateware/cores/mirror.sv
++++ b/gateware/cores/mirror.sv
+@@ -27,3 +27,4 @@ assign sample_out2 = sample_in2;
+ assign sample_out3 = sample_in3;
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/pitch_shift.sv b/gateware/cores/pitch_shift.sv
+index 63e7cb7..01c609e 100644
+--- a/gateware/cores/pitch_shift.sv
++++ b/gateware/cores/pitch_shift.sv
+@@ -38,3 +38,4 @@ assign sample_out0 = sample_in0;
+ assign sample_out2 = (sample_in0 >>> 1) + (sample_out1 >>> 1);
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/sampler.sv b/gateware/cores/sampler.sv
+index d430a13..5d493f9 100644
+--- a/gateware/cores/sampler.sv
++++ b/gateware/cores/sampler.sv
+@@ -72,3 +72,4 @@ assign sample_out2 = sample_in2;
+ assign sample_out3 = sample_in3;
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/seqswitch.sv b/gateware/cores/seqswitch.sv
+index ee86c64..8a161fa 100644
+--- a/gateware/cores/seqswitch.sv
++++ b/gateware/cores/seqswitch.sv
+@@ -85,3 +85,4 @@ end
+ assign sample_out0 = sample_in0;
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/stereo_echo.sv b/gateware/cores/stereo_echo.sv
+index 64e0e42..c59ccb0 100644
+--- a/gateware/cores/stereo_echo.sv
++++ b/gateware/cores/stereo_echo.sv
+@@ -56,3 +56,4 @@ assign sample_out0 = sample_in0;
+ assign sample_out2 = sample_in1;
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/util/dc_block.sv b/gateware/cores/util/dc_block.sv
+index e229f7d..c3a6e47 100644
+--- a/gateware/cores/util/dc_block.sv
++++ b/gateware/cores/util/dc_block.sv
+@@ -28,3 +28,4 @@ always_ff @(posedge sample_clk) begin
+ end
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/util/delayline.sv b/gateware/cores/util/delayline.sv
+index c557ca8..08c8f61 100644
+--- a/gateware/cores/util/delayline.sv
++++ b/gateware/cores/util/delayline.sv
+@@ -27,3 +27,4 @@ always_ff @(posedge sample_clk) begin
+ end
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/util/echo.sv b/gateware/cores/util/echo.sv
+index ac9fc23..19a85ac 100644
+--- a/gateware/cores/util/echo.sv
++++ b/gateware/cores/util/echo.sv
+@@ -30,3 +30,4 @@ always_ff @(posedge sample_clk) begin
+ end
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/util/filter/karlsen_lpf.sv b/gateware/cores/util/filter/karlsen_lpf.sv
+index 54a359f..bb826d6 100644
+--- a/gateware/cores/util/filter/karlsen_lpf.sv
++++ b/gateware/cores/util/filter/karlsen_lpf.sv
+@@ -84,3 +84,4 @@ end
+ `endif
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/util/filter/karlsen_lpf_pipelined.sv b/gateware/cores/util/filter/karlsen_lpf_pipelined.sv
+index 33912f8..6394e84 100644
+--- a/gateware/cores/util/filter/karlsen_lpf_pipelined.sv
++++ b/gateware/cores/util/filter/karlsen_lpf_pipelined.sv
+@@ -148,3 +148,4 @@ end
+ `endif
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/util/transpose.sv b/gateware/cores/util/transpose.sv
+index e1feed5..98a7886 100644
+--- a/gateware/cores/util/transpose.sv
++++ b/gateware/cores/util/transpose.sv
+@@ -82,3 +82,4 @@ always_ff @(posedge sample_clk) begin
+ end
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/util/wavetable_osc.sv b/gateware/cores/util/wavetable_osc.sv
+index e570b5f..26f76c9 100644
+--- a/gateware/cores/util/wavetable_osc.sv
++++ b/gateware/cores/util/wavetable_osc.sv
+@@ -27,3 +27,4 @@ always_ff @(posedge sample_clk) begin
+ end
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/vca.sv b/gateware/cores/vca.sv
+index 647cdce..e5ac9ad 100644
+--- a/gateware/cores/vca.sv
++++ b/gateware/cores/vca.sv
+@@ -43,3 +43,4 @@ assign sample_out2 = sample_in2;
+ assign sample_out3 = W'(vca2 >>> W);
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/cores/vco.sv b/gateware/cores/vco.sv
+index 0fab58b..9444442 100644
+--- a/gateware/cores/vco.sv
++++ b/gateware/cores/vco.sv
+@@ -62,3 +62,4 @@ wavetable_osc #(
+ );
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/drivers/ak4619.sv b/gateware/drivers/ak4619.sv
+index f096386..9d5f95f 100644
+--- a/gateware/drivers/ak4619.sv
++++ b/gateware/drivers/ak4619.sv
+@@ -26,9 +26,9 @@
+ module ak4619 #(
+     parameter W = 16 // sample width, bits
+ )(
+-    input  rst,
++    input  wire rst,
+     input  clk_256fs,
+-    input  clk_fs,
++    input  wire clk_fs,
+ 
+     // Route these straight out to the CODEC pins.
+     output pdn,
+@@ -62,7 +62,7 @@ logic [7:0] clkdiv;
+ logic [1:0] channel;
+ logic [4:0] bit_counter;
+ 
+-assign pdn         = ~rst;
++assign pdn         = ~ rst;
+ assign bick        = clkdiv[0];
+ assign mclk        = clk_256fs;
+ assign lrck        = clkdiv[7];
+@@ -81,7 +81,7 @@ always_ff @(posedge clk_256fs) begin
+         sample_out1 <= 0;
+         sample_out2 <= 0;
+         sample_out3 <= 0;
+-    end else if (last_fs && ~clk_fs) begin
++    end else if (last_fs && ~ clk_fs) begin
+         // Synchronize clkdiv to the incoming sample clock, latching
+         // our inputs and outputs at the falling edge of clk_fs.
+         clkdiv <= 8'h0;
+@@ -131,3 +131,4 @@ end
+ `endif
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/drivers/pmod_i2c_master.sv b/gateware/drivers/pmod_i2c_master.sv
+index 7e3915b..4eeeab8 100644
+--- a/gateware/drivers/pmod_i2c_master.sv
++++ b/gateware/drivers/pmod_i2c_master.sv
+@@ -306,3 +306,4 @@ end
+ `endif
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/eurorack_pmod.sv b/gateware/eurorack_pmod.sv
+index ef0b5ab..567432b 100644
+--- a/gateware/eurorack_pmod.sv
++++ b/gateware/eurorack_pmod.sv
+@@ -155,3 +155,4 @@ pmod_i2c_master #(
+ );
+ 
+ endmodule
++`default_nettype wire 
+diff --git a/gateware/external/no2misc b/gateware/external/no2misc
+index 59350da..3026954 160000
+--- a/gateware/external/no2misc
++++ b/gateware/external/no2misc
+@@ -1 +1 @@
+-Subproject commit 59350da954e78424117ed01c55b5c7a12e524397
++Subproject commit 3026954e1889391432994f905db2174abc556671-dirty
+diff --git a/gateware/top.sv b/gateware/top.sv
+index d2f9664..c68e3ec 100644
+--- a/gateware/top.sv
++++ b/gateware/top.sv
+@@ -191,3 +191,4 @@ debug_uart #(
+ );
+ 
+ endmodule
++`default_nettype wire 

@@ -1,0 +1,27 @@
+diff --git a/sim/fifo_tb.v b/sim/fifo_tb.v
+index 2dd2765..ab39d8e 100644
+--- a/sim/fifo_tb.v
++++ b/sim/fifo_tb.v
+@@ -89,3 +89,4 @@ module fifo_tb;
+ 		end
+ 
+ endmodule // fifo_tb
++`default_nettype wire 
+diff --git a/sim/pdm_tb.v b/sim/pdm_tb.v
+index 3ad04e3..6accd8a 100644
+--- a/sim/pdm_tb.v
++++ b/sim/pdm_tb.v
+@@ -55,3 +55,4 @@ module pdm_tb;
+ 	end
+ 
+ endmodule // pdm_tb
++`default_nettype wire 
+diff --git a/sim/uart_tb.v b/sim/uart_tb.v
+index e6dbbb0..b852858 100644
+--- a/sim/uart_tb.v
++++ b/sim/uart_tb.v
+@@ -76,3 +76,4 @@ module uart_tb;
+ 	assign tx_valid = ~rst;
+ 
+ endmodule // uart_tb
++`default_nettype wire 
