@@ -1,0 +1,189 @@
+diff --git a/rtl/delay.v b/rtl/delay.v
+index 581cc89..d29415d 100644
+--- a/rtl/delay.v
++++ b/rtl/delay.v
+@@ -84,3 +84,4 @@ module delay_toggle #(
+ 	// FIXME: TODO
+ 
+ endmodule // delay_toggle
++`default_nettype wire
+diff --git a/rtl/fifo_sync_ram.v b/rtl/fifo_sync_ram.v
+index 7d81167..f3c4b44 100644
+--- a/rtl/fifo_sync_ram.v
++++ b/rtl/fifo_sync_ram.v
+@@ -140,3 +140,4 @@ module fifo_sync_ram #(
+ 	);
+ 
+ endmodule // fifo_sync_ram
++`default_nettype wire
+diff --git a/rtl/fifo_sync_shift.v b/rtl/fifo_sync_shift.v
+index 3369091..17affec 100644
+--- a/rtl/fifo_sync_shift.v
++++ b/rtl/fifo_sync_shift.v
+@@ -96,3 +96,4 @@ module fifo_sync_shift #(
+ 	assign rd_data  = data[1];
+ 
+ endmodule // fifo_sync_shift
++`default_nettype wire
+diff --git a/rtl/glitch_filter.v b/rtl/glitch_filter.v
+index 15e532d..1050a9a 100644
+--- a/rtl/glitch_filter.v
++++ b/rtl/glitch_filter.v
+@@ -104,3 +104,4 @@ module glitch_filter #(
+ 	end
+ 
+ endmodule // glitch_filter
++`default_nettype wire
+diff --git a/rtl/i2c_master.v b/rtl/i2c_master.v
+index 7a0b36f..90c8fac 100644
+--- a/rtl/i2c_master.v
++++ b/rtl/i2c_master.v
+@@ -247,3 +247,4 @@ module i2c_master #(
+ 	assign ready = (state == ST_IDLE);
+ 
+ endmodule // i2c_master
++`default_nettype wire
+diff --git a/rtl/i2c_master_wb.v b/rtl/i2c_master_wb.v
+index 5c815b1..4a73717 100644
+--- a/rtl/i2c_master_wb.v
++++ b/rtl/i2c_master_wb.v
+@@ -247,3 +247,4 @@ module i2c_master_wb #(
+ 	end
+ 
+ endmodule // i2c_master_wb
++`default_nettype wire
+diff --git a/rtl/muacm2wb.v b/rtl/muacm2wb.v
+index 75cabb1..c31e924 100644
+--- a/rtl/muacm2wb.v
++++ b/rtl/muacm2wb.v
+@@ -169,3 +169,4 @@ module muacm2wb #(
+ 			bootloader <= bootloader | bootloader_stb;
+ 
+ endmodule // muacm2wb
++`default_nettype wire
+diff --git a/rtl/pdm.v b/rtl/pdm.v
+index 5c37a94..8ede2e3 100644
+--- a/rtl/pdm.v
++++ b/rtl/pdm.v
+@@ -137,3 +137,4 @@ module pdm_lfsr #(
+ 			out <= { fb, out[WIDTH-1:1] };
+ 
+ endmodule // pdm_lfsr
++`default_nettype wire
+diff --git a/rtl/prims.v b/rtl/prims.v
+index 9bc5fbc..957d9c2 100644
+--- a/rtl/prims.v
++++ b/rtl/prims.v
+@@ -265,3 +265,4 @@ module dffesr_n #(
+ 	endgenerate
+ 
+ endmodule // dffesr_n
++`default_nettype wire
+diff --git a/rtl/pwm.v b/rtl/pwm.v
+index 9409a2f..5bfa74e 100644
+--- a/rtl/pwm.v
++++ b/rtl/pwm.v
+@@ -90,3 +90,4 @@ module pwm #(
+ 	endgenerate
+ 
+ endmodule // pwm
++`default_nettype wire
+diff --git a/rtl/ram_sdp.v b/rtl/ram_sdp.v
+index 45e8b4e..9cb3623 100644
+--- a/rtl/ram_sdp.v
++++ b/rtl/ram_sdp.v
+@@ -48,3 +48,4 @@ module ram_sdp #(
+ 	end
+ 
+ endmodule // ram_sdp
++`default_nettype wire
+diff --git a/rtl/stream2wb.v b/rtl/stream2wb.v
+index 9c5d80b..819ebb4 100644
+--- a/rtl/stream2wb.v
++++ b/rtl/stream2wb.v
+@@ -183,3 +183,4 @@ module stream2wb #(
+ 	end
+ 
+ endmodule // stream2wb
++`default_nettype wire
+diff --git a/rtl/uart2wb.v b/rtl/uart2wb.v
+index 3c79760..ffe44da 100644
+--- a/rtl/uart2wb.v
++++ b/rtl/uart2wb.v
+@@ -105,3 +105,4 @@ module uart2wb #(
+ 	);
+ 
+ endmodule
++`default_nettype wire
+diff --git a/rtl/uart_rx.v b/rtl/uart_rx.v
+index 03650af..fd3cbf3 100644
+--- a/rtl/uart_rx.v
++++ b/rtl/uart_rx.v
+@@ -103,3 +103,4 @@ module uart_rx #(
+ 		stb <= ce & bit_cnt[4] & rx_val;
+ 
+ endmodule // uart_rx
++`default_nettype wire
+diff --git a/rtl/uart_tx.v b/rtl/uart_tx.v
+index 10f596a..d88b26a 100644
+--- a/rtl/uart_tx.v
++++ b/rtl/uart_tx.v
+@@ -70,3 +70,4 @@ module uart_tx #(
+ 	assign tx = shift[0];
+ 
+ endmodule // uart_tx
++`default_nettype wire
+diff --git a/rtl/uart_wb.v b/rtl/uart_wb.v
+index 0fb0746..d480ecd 100644
+--- a/rtl/uart_wb.v
++++ b/rtl/uart_wb.v
+@@ -204,3 +204,4 @@ module uart_wb #(
+ 	assign wb_ack = ub_ack;
+ 
+ endmodule // uart_wb
++`default_nettype wire
+diff --git a/rtl/xclk_strobe.v b/rtl/xclk_strobe.v
+index 8e41feb..8332036 100644
+--- a/rtl/xclk_strobe.v
++++ b/rtl/xclk_strobe.v
+@@ -44,3 +44,4 @@ module xclk_strobe (
+ 			out_stb <= ^dst[1:0];
+ 
+ endmodule
++`default_nettype wire
+diff --git a/rtl/xclk_wb.v b/rtl/xclk_wb.v
+index 6c6dca0..55e85cb 100644
+--- a/rtl/xclk_wb.v
++++ b/rtl/xclk_wb.v
+@@ -115,3 +115,4 @@ module xclk_wb #(
+ 	assign s_ack = s_ack_i;
+ 
+ endmodule
++`default_nettype wire
+diff --git a/sim/fifo_tb.v b/sim/fifo_tb.v
+index 2dd2765..ab39d8e 100644
+--- a/sim/fifo_tb.v
++++ b/sim/fifo_tb.v
+@@ -89,3 +89,4 @@ module fifo_tb;
+ 		end
+ 
+ endmodule // fifo_tb
++`default_nettype wire 
+diff --git a/sim/pdm_tb.v b/sim/pdm_tb.v
+index 3ad04e3..6accd8a 100644
+--- a/sim/pdm_tb.v
++++ b/sim/pdm_tb.v
+@@ -55,3 +55,4 @@ module pdm_tb;
+ 	end
+ 
+ endmodule // pdm_tb
++`default_nettype wire 
+diff --git a/sim/uart_tb.v b/sim/uart_tb.v
+index e6dbbb0..b852858 100644
+--- a/sim/uart_tb.v
++++ b/sim/uart_tb.v
+@@ -76,3 +76,4 @@ module uart_tb;
+ 	assign tx_valid = ~rst;
+ 
+ endmodule // uart_tb
++`default_nettype wire 
