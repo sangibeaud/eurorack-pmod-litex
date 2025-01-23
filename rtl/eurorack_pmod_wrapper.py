@@ -116,7 +116,7 @@ class EurorackPmod(Module, AutoCSR):
         )
 
 
-        if not sim:
+        if (not sim and (1==0)):
             # FIXME: For now these tristate implementations are ECP5 specific.
 
             self.specials += Instance("TRELLIS_IO",
