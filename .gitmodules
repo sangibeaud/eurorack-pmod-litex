@@ -1,18 +1,19 @@
 [submodule "deps/eurorack-pmod"]
 	path = deps/eurorack-pmod
-	url = https://github.com/apfelaudio/eurorack-pmod
+	url = https://github.com/sangibeaud/eurorack-pmod
 [submodule "deps/migen"]
 	path = deps/migen
 	url = https://github.com/m-labs/migen.git
 [submodule "deps/litex"]
 	path = deps/litex
-	url = https://github.com/schnommus/litex.git
+	url = ssh://git@github.com/sangibeaud/litex.git
+	branch = yosys_nextpnr
 [submodule "deps/litedram"]
 	path = deps/litedram
 	url = https://github.com/enjoy-digital/litedram.git
 [submodule "deps/litex_boards"]
 	path = deps/litex_boards
-	url = https://github.com/litex-hub/litex-boards.git
+	url = https://github.com/sangibeaud/litex-boards.git
 [submodule "deps/litespi"]
 	path = deps/litespi
 	url = https://github.com/litex-hub/litespi
